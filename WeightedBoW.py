@@ -1,5 +1,5 @@
 from collections import Counter
-from main import  Main
+from main import Main
 
 file_path = 'DataSets/Dataset_Weighted.xlsx'
 
@@ -13,5 +13,6 @@ if excel_column is not None:
         char_counts = Counter(row)
         char_presence = [char_counts[char] if char in row else 0 for char in Main.combined_alphabet]
         results.append(char_presence)
-
-Main.write_excel(file_path, results)
+    Main.write_excel(file_path, results)
+else:
+    print("Couldn't find the sentences.")

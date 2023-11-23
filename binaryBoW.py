@@ -10,5 +10,6 @@ if excel_column is not None:
     for i, row in excel_column.items():
         char_presence = [1 if char in row else 0 for char in Main.combined_alphabet]
         results.append(char_presence)
-
-Main.write_excel(file_path, results)
+    Main.write_excel(file_path, results)
+else:
+    print("Couldn't find the sentences.")

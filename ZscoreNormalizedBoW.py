@@ -21,5 +21,6 @@ if excel_column is not None:
         stdev = statistics.stdev(char_counts.values())
         char_presence = [(char_counts[char] - mean) / stdev if stdev != 0 else 0 for char in Main.combined_alphabet]
         results.append(char_presence)
-
-Main.write_excel(file_path, results)
+    Main.write_excel(file_path, results)
+else:
+    print("Couldn't find the sentences.")

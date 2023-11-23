@@ -16,7 +16,7 @@ class Main:
         """
 
         :param str file_path: File path of the Excel Data set
-        :param str column_name: name of the column that contains the strigns
+        :param str column_name: name of the column that contains the strings
         :return:
         """
         try:
@@ -51,6 +51,6 @@ class Main:
         final_data = pd.concat([data, results_df], axis=1)
 
         # Write the updated data to the same Excel file starting from column 2
-        final_data.to_excel(file_path, index=True)
+        final_data.to_excel(file_path, index=False)
 
         print(f"Results has been successfully written to '{file_path}'.")
