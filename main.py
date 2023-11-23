@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-class Basic:
+class Main:
     arabic_alphabet = ['ا', 'ب', 'ت', 'ث', 'ج', 'ح', 'خ', 'د', 'ذ', 'ر', 'ز', 'س', 'ش', 'ص', 'ض', 'ط', 'ظ', 'ع',
                        'غ',
                        'ف', 'ق', 'ك', 'ل', 'م', 'ن', 'ه', 'و', 'ي']
@@ -11,7 +11,14 @@ class Basic:
     combined_alphabet = list(set(arabic_alphabet + persian_alphabet))
     combined_alphabet.sort()  # Sort the combined alphabet
 
-    def read_excel(self, file_path, column_name):
+    @staticmethod
+    def read_excel(file_path, column_name):
+        """
+
+        :param str file_path: File path of the Excel Data set
+        :param str column_name: name of the column that contains the strigns
+        :return:
+        """
         try:
             # Read the Excel file
             data = pd.read_excel(file_path)
@@ -28,10 +35,14 @@ class Basic:
             print(f"An error occurred: {e}")
             return None
 
-    def write_excel(self, file_path, results):
-
+    @staticmethod
+    def write_excel(file_path, results):
+        """
+        :param str file_path: File path of the Excel Data set
+        :param List results: Final result contains result of the BoW
+        """
         # Create a DataFrame with the results
-        results_df = pd.DataFrame(results, columns=Basic.combined_alphabet)
+        results_df = pd.DataFrame(results, columns=Main.combined_alphabet)
 
         # Read the original Excel file again to append results to it
         data = pd.read_excel(file_path)
@@ -43,7 +54,3 @@ class Basic:
         final_data.to_excel(file_path, index=True)
 
         print(f"Results has been successfully written to '{file_path}'.")
-
-
-def __init__(self):
-    pass
